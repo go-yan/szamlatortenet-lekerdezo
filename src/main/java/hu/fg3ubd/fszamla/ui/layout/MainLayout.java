@@ -1,4 +1,4 @@
-package dev.goyan.acchist.views;
+package hu.fg3ubd.fszamla.ui.layout;
 
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
@@ -40,7 +40,7 @@ public class MainLayout extends AppLayout {
     }
 
     private void addDrawerContent() {
-        Span appName = new Span("FSZLAHIST");
+        Span appName = new Span("Számlatörténet exporter");
         appName.addClassNames(LumoUtility.FontWeight.SEMIBOLD, LumoUtility.FontSize.LARGE, LumoUtility.Margin.SMALL);
         Header header = new Header(appName);
 
@@ -52,7 +52,7 @@ public class MainLayout extends AppLayout {
 
     private SideNav createNavigation() {
         SideNav nav = new SideNav();
-        // removing initView from sidebar
+        // removing WelcomeView from sidebar
         List<MenuEntry> menuEntries = MenuConfiguration.getMenuEntries().stream().skip(1).toList();
 
         menuEntries.forEach(entry -> {
