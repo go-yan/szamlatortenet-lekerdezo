@@ -24,7 +24,7 @@ public final class UserNotificationFactory {
 
         Button closeButton = new Button(new Icon("lumo", "cross"));
         closeButton.addThemeVariants(ButtonVariant.LUMO_TERTIARY_INLINE);
-        closeButton.setAriaLabel("Close");
+        closeButton.setAriaLabel("Bezár");
         closeButton.addClickListener(event -> {
             notification.close();
         });
@@ -45,7 +45,7 @@ public final class UserNotificationFactory {
 
         Button closeButton = new Button(new Icon("lumo", "cross"));
         closeButton.addThemeVariants(ButtonVariant.LUMO_TERTIARY_INLINE);
-        closeButton.setAriaLabel("Close");
+        closeButton.setAriaLabel("Bezár");
         closeButton.addClickListener(event -> {
             notification.close();
         });

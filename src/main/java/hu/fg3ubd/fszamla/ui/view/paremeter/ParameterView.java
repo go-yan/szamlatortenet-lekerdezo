@@ -27,6 +27,7 @@ import software.xdev.vaadin.grid_exporter.jasper.format.CsvFormat;
 import software.xdev.vaadin.grid_exporter.jasper.format.PdfFormat;
 import software.xdev.vaadin.grid_exporter.jasper.format.XlsxFormat;
 
+import static hu.fg3ubd.fszamla.constants.ServiceConstants.LACK_OF_DATES;
 import static hu.fg3ubd.fszamla.constants.ServiceConstants.WRONG_ACCOUNT_ID_FORMAT;
 import static hu.fg3ubd.fszamla.constants.UiConstants.*;
 
@@ -131,6 +132,7 @@ public class ParameterView extends Composite<VerticalLayout> {
         picker.setWidth(ATTRIBUTE_MIN_CONTENT);
         picker.setLabel(ATTRIBUTE_START_DATE);
         picker.setRequiredIndicatorVisible(true);
+        picker.setRequired(true);
         picker.setI18n(new DatePicker.DatePickerI18n().setRequiredErrorMessage(ATTRIBUTE_MANDATORY_START_DATE));
         return picker;
     }
@@ -140,6 +142,7 @@ public class ParameterView extends Composite<VerticalLayout> {
         picker.setWidth(ATTRIBUTE_MIN_CONTENT);
         picker.setLabel(ATTRIBUTE_END_DATE);
         picker.setRequiredIndicatorVisible(true);
+        picker.setRequired(true);
         picker.setI18n(new DatePicker.DatePickerI18n().setRequiredErrorMessage(ATTRIBUTE_MANDATORY_END_DATE));
         return picker;
     }
@@ -172,6 +175,18 @@ public class ParameterView extends Composite<VerticalLayout> {
     }
 
     private void validateInputs() throws ValidationException {
+        if (startDatePicker.getValue() == null ||
+            endDatePicker.getValue() == null) {
+            startDatePicker.setInvalid(true);
+            endDatePicker.setInvalid(true);
+            throw new ValidationException(LACK_OF_DATES);
+        }
+
+        if (accountIdTextField.isEmpty() && taxNumberTextField.isEmpty()) {
+            accountIdTextField.setInvalid(true);
+            taxNumberTextField.setInvalid(true);
+        }
+
         if (endDatePicker.getValue() != null &&
                 endDatePicker.getValue().isBefore(startDatePicker.getValue())) {
             throw new ValidationException(ATTRIBUTE_INVALID_DATES);
@@ -189,6 +204,7 @@ public class ParameterView extends Composite<VerticalLayout> {
 
     private void handleSearchResults(List<QueryResult> results) {
         if (!results.isEmpty()) {
+            log.info("Account found");
             queryResultGrid.setItems(results);
             exportButton.setVisible(true);
         } else {

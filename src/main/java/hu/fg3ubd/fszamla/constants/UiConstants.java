@@ -38,5 +38,5 @@ public class UiConstants {
 
     public static final String ATTRIBUTE_DATABASE_ERROR_LOG = "Database error during search";
     public static final String ATTRIBUTE_DATABASE_ERROR_USER_MESSAGE = "Váratlan hiba lépett fel az adatbázis működésével kapcsolatban!"
-            + "\nKérem ismételje meg később a műveletet!";
+            + "\nKérjük ismételje meg később a műveletet. Ha a hiba továbbra is fennáll, kérjük vegye fel a kapcsolatot a rendszergazdával!";
 }

@@ -11,5 +11,6 @@ public final class ServiceConstants {
 
     public static final String WRONG_ACCOUNT_ID_FORMAT = "Hibás számlaszám formátum!";
     public static final String WRONG_TAX_ID_FORMAT = "Hibás adóazonosító jel formátum!";
-    public static final String LACK_OF_PARAMETERS = "Számlaszámot vagy Adóazonosító jelet kötelező megadni!";
+    public static final String LACK_OF_ACCOUNT_ID_TAX_ID = "Számlaszámot vagy Adóazonosító jelet kötelező megadni!";
+    public static final String LACK_OF_DATES = "Kérjük adja meg a keresési időszakra vonatkozó intervallumot!";
 }

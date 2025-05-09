@@ -40,7 +40,7 @@ public class MainLayout extends AppLayout {
     }
 
     private void addDrawerContent() {
-        Span appName = new Span("Számlatörténet exporter");
+        Span appName = new Span("Számlatörténet-lekérdező");
         appName.addClassNames(LumoUtility.FontWeight.SEMIBOLD, LumoUtility.FontSize.LARGE, LumoUtility.Margin.SMALL);
         Header header = new Header(appName);
 
@@ -52,7 +52,7 @@ public class MainLayout extends AppLayout {
 
     private SideNav createNavigation() {
         SideNav nav = new SideNav();
-        // removing WelcomeView from sidebar
+
         List<MenuEntry> menuEntries = MenuConfiguration.getMenuEntries().stream().skip(1).toList();
 
         menuEntries.forEach(entry -> {

@@ -44,7 +44,6 @@ public class AccountHistoryService {
         };
     }
 
-    //Preparing query based on the number of parameters provided by the user
     public String prepareQuery(QueryParameters params) {
         var baseQuery = BASE_QUERY;
         if (params.getAccountId() != null)
@@ -83,7 +82,7 @@ public class AccountHistoryService {
             status = 3;
 
         if (!isAccountIdPresent && !isTaxNumberPresent)
-            throw new ValidationException(LACK_OF_PARAMETERS);
+            throw new ValidationException(LACK_OF_ACCOUNT_ID_TAX_ID);
         return status;
     }
 

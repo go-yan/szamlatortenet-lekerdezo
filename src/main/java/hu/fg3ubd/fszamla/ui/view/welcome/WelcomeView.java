@@ -27,10 +27,7 @@ public class WelcomeView extends Composite<VerticalLayout> {
     private final VerticalLayout mainContent = createMainLayout();
 
     public WelcomeView() {
-
-        log.info("welcome view");
         initializeLayout();
-
     }
 
     private void initializeLayout() {
